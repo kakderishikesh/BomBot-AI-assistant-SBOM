@@ -7,7 +7,11 @@ class Database:
     
     @staticmethod
     async def connect(mongoConnStr: str, mongoDB: str) -> None:
-        Database.__client = AsyncIOMotorClient(mongoConnStr)
+        Database.__client = AsyncIOMotorClient(
+            mongoConnStr,
+            tls=True,
+            tlsAllowInvalidCertificates=True
+        )
 
         Database.__db = Database.client()[mongoDB]
         await init_beanie(database=Database.db(), document_models=[
