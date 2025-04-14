@@ -1,12 +1,15 @@
 FROM python:3.12-slim
 
-# install certs and SSL support
-RUN apt-get update && apt-get install -y libssl-dev openssl ca-certificates && update-ca-certificates
+RUN apt-get update && apt-get install -y \
+  libssl-dev \
+  openssl \
+  ca-certificates \
+  curl && update-ca-certificates
 
 WORKDIR /app
 
 COPY requirements.txt .
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
