@@ -168,3 +168,4 @@ chroma_data/
 #.idea/
 
 .env
+.venv
