@@ -4,11 +4,11 @@ info:
   description: API for retrieving vulnerability information for software packages using SPDX and CycloneDX SBOM formats.
   version: 1.2.0
 servers:
-  - url: https://bombot-context.onrender.com
+  - url: https://bombot-ai-assistant-sbom.onrender.com
     description: Production server
 
 paths:
-  /api/context/spdx/pkg:
+  app/api/context/spdx/pkg:
     post:
       operationId: getContextPackageSPDX
       summary: Get vulnerability information for a package in SPDX SBOM format.
@@ -113,7 +113,7 @@ paths:
         '500':
           description: Internal server error.
 
-  /api/context/cdx/pkg:
+  app/api/context/cdx/pkg:
     post:
       operationId: getContextPackageCDX
       summary: Get vulnerability information for a package in CycloneDX (CDX) SBOM format.
